@@ -1,146 +1,192 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
+        //        1.Write a program that prints the numbers from 1 to 100 such that:
+        for (int i = 1; i <= 100; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                System.out.println("FizzBuzz");
+            } else if (i % 3 == 0) {
+                System.out.println("Fizz");
+            } else if (i % 5 == 0) {
+                System.out.println("Buzz");
+            } else {
+                System.out.println(i);
+            }
+        }
+        System.out.println("-----------------------------------------------");
+//        2.Write a Java program to reverse a string.
+        Scanner s1 = new Scanner(System.in);
+        String str;
+        System.out.println("Please enter a string to reverse it");
+        str = s1.nextLine();
+        String c = "";
+        for (int k = str.length() - 1; k >= 0; k--) {
+            c = c + str.charAt(k);
 
-        Scanner s=new Scanner(System.in);
-        int num1;
+        }
+        System.out.println(c);
+        System.out.println("-----------------------------------------------");
+//        3.Write a program that prompts the user to input a positive integer. It should then print the multiplication table of that number.
+        Scanner s3 = new Scanner(System.in);
+        int pi;
+        System.out.println("Please enter a positive integer to print the multiplication table of it or 0 for Quit");
+        do {
+            pi = s3.nextInt();
+            if (pi > 0) {
+                for (int s = 1; s <= 10; s++) {
+                    int multi = s * pi;
+                    System.out.println(pi + "X" + s + "=" + multi);
+                }
+            } else if (pi == 0) {
+                break;
+            } else {
+                System.out.println("the negative number is not valid input please inter positive number or 0 for quite");
+            }
+        } while (pi != 0 && pi < 0);
+        System.out.println("-----------------------------------------------");
+//        4.Write a program to find the factorial value of any number entered through the keyboard.
+        Scanner s2 = new Scanner(System.in);
+        int N;
+        int factorial = 1;
+        int m = 1;
+        System.out.println("Please enter a number to find the factorial value of it or 0 for Quit");
+        N = s2.nextInt();
+        if (N != 0) {
+            while (m <= N) {
+                factorial = factorial * m;
+                m++;
+            }
+            System.out.println("the factorial value of " + N + " = " + factorial);
+        } else {
+            System.out.println("the program is Quit");
+        }
+//        5.Two numbers are entered through the keyboard. Write a program to find the value of one number raised to the power of another. (Do not use Java built-in method)
+        Scanner s4 = new Scanner(System.in);
+        int number;
+        int power;
+        int result = 1;
+        System.out.println("Please enter the number");
+        number = s4.nextInt();
+        System.out.println("Please enter the power ");
+        power = s4.nextInt();
+        while (power != 0) {
+            result = result * number;
+            power--;
+        }
+        System.out.println("the result = " + result);
+        System.out.println("-----------------------------------------------");
+//        6.Write a program that reads a set of integers, and then prints the sum of the even and odd integers.
+        Scanner s5 = new Scanner(System.in);
+        int num;
+        int sumeven = 0;
+        int sumodd = 0;
+        System.out.println("Please enter set of integers and 0 if you want stop entering number");
+        do {
+            num = s5.nextInt();
+            if(num>=0) {
+                if (num != 0) {
+                    if (num % 2 == 0) {
+                        sumeven = sumeven + num;
+                    } else {
+                        sumodd = sumodd + num;
+                    }
+                } else {
+                    break;
+                }
+            }else {
+                System.out.println("the negative number is not valid input please inter integer number or 0 for quit");
+            }
+
+        } while (num != 0);
+        System.out.println("sum of even number = " + sumeven);
+        System.out.println("sum of odd number = " + sumodd);
+        System.out.println("-----------------------------------------------");
+
+//       7.Write a program that prompts the user to input a positive integer. It should then output a message indicating whether the number is a prime number.
+        Scanner s6 = new Scanner(System.in);
         int num2;
-        //1.Write a Java program to print the sum, multiply, subtract, divide and remainder of two numbers.
-        System.out.println("Please enter the first number.");
-        num1=s.nextInt();
-        System.out.println("Please enter the second number.");
-        num2=s.nextInt();
-        System.out.println(num1+"+"+num2+"="+(num1+num2));
-        System.out.println(num1+"-"+num2+"="+(num1-num2));
-        System.out.println(num1+"x"+num2+"="+(num1*num2));
-        System.out.println(num1+"/"+num2+"="+(num1/num2));
-        System.out.println(num1+"mod"+num2+"="+(num1%num2));
-        System.out.println("-----------------------------------------------");
-
-        //2.Write a Java program to convert a given string into lowercase .
-        Scanner s2=new Scanner(System.in);
-        System.out.println("Please enter string to convert it into lowercase.");
-        String Sentence=s2.nextLine();
-        System.out.println("The String after converting\n"+ Sentence.toLowerCase());
-        System.out.println("-----------------------------------------------");
-
-        // 3.Write a Java program that takes a string and a number from the user,then prints the character in the given index.
-        Scanner s3=new Scanner(System.in);
-        System.out.println("Please enter string");
-        String sent=s3.nextLine();
-        System.out.println("Please enter the index of the character you want me to print.");
-        num1=s3.nextInt();
-        if(num1<=sent.length()) {
-            System.out.println("the character is :" + sent.charAt(num1));
+        boolean r=true;
+        System.out.println("Please enter an integer number to check if it prime or not");
+        num2 = s6.nextInt();
+        if (num2 >= 2) {
+            for (int n = 2; n <= num2 / 2; n++) {
+                if (num2 % n == 0) {
+                   r=false;
+                   break;
+                }else
+                {
+                    r=true;
+                }
+                }
         }
-        else
+        if(r==false) {
+            System.out.println("the number is not prim number");
+        }else
         {
-            System.out.println("enter index less than or equal to "+sent.length());
+            System.out.println("the number is a prim number");
         }
         System.out.println("-----------------------------------------------");
 
-        /*4.Write a Java program to accept a number and check the number is even or not.
-        Prints 1 if the number is even or 0 if the number is odd. (use if-statement)*/
-        Scanner s4=new Scanner(System.in);
+//        8.Write a program to enter the numbers till the user wants and at the end it should display the count of positive, negative and zeros entered.
+        Scanner s7 = new Scanner(System.in);
         int num3;
-        System.out.println("Enter a number to check whether it is odd or even.");
-        num3=s4.nextInt();
-        if ((num3%2)==0)
-        {
-            System.out.println("1");
-        }
-        else
-        {
-            System.out.println("0");
-        }
+        int PC=0;
+        int NC=0;
+        int zeros=0;
+        System.out.println("Please enter any number you want or type 1111 to stop");
+        do {
+            num3=s7.nextInt();
+            if(num3!=1111)
+            {
+                if(num3>0){PC++;}
+                else if (num3<0) {NC++;}
+                else if (num3==0) {zeros++;}
+            }else {
+                break;
+            }
+        }while (num3!=1111);
+        System.out.println("the count of positive = "+PC);
+        System.out.println("the count of negative = "+NC);
+        System.out.println("the count of zeros = "+zeros);
         System.out.println("-----------------------------------------------");
 
-        // 5.Write a program that checks the role of the user
-        Scanner s5=new Scanner(System.in);
-        System.out.println("Enter your role");
-        String role=s5.nextLine();
-        if(role.equalsIgnoreCase("admin"))
+//        9.Use a for loop to print headings for four weeks (Weeks 1 - 4). Then use another for loop to print the days (Days 1 -7) for each week.
+        for(int w=1;w<=4;w++)
         {
-            System.out.println("welcome admin");
+            System.out.println("Week "+w);
+            for(int d=1;d<=7;d++)
+            {
+                System.out.println("Day "+d);
+            }
         }
-        else if(role.equalsIgnoreCase("user") )
+//        10.Write a program thats check if the word is a palindrome or not. hint: A string is said to be a palindrome if it is the same if we start reading it from left to right or right to left.
+        Scanner s8 = new Scanner(System.in);
+        String word;
+        boolean flag=true;
+        System.out.println("Please enter a word to check if it a palindrome or not");
+        word=s8.nextLine();
+        for(int s=0;s<=word.length()-1;s++)
         {
-            System.out.println("welcome user");
-        }
-        else if(role.equalsIgnoreCase("superuser") )
-        {
-            System.out.println("welcome superuser");
-        }
-        System.out.println("-----------------------------------------------");
+          for(int f=word.length()-1;f>=0;f--)
+          {
+              if(word.charAt(s)!=word.charAt(f))
+              {
+                  flag=false;
+              }
+              else {
+                  flag=true;
+              }
 
-        //6.Write a Java program to calculate the sum of two integers and return true if the sum is equal to a third integer.
-        int N1,N2,N3,sum;
-        Scanner s6=new Scanner(System.in);
-        System.out.println("Please enter the first number.");
-        N1=s6.nextInt();
-        System.out.println("Please enter the second number.");
-        N2=s6.nextInt();
-        System.out.println("Please enter the third number.");
-        N3=s6.nextInt();
-        sum=N1+N2;
-        System.out.println("Is the sum of two integers equal to a third integer??\n"+(sum==N3));
-        System.out.println("-----------------------------------------------");
+          }
 
-        //Take three numbers from the user and print the greatest number.
-        int Nm1,Nm2,Nm3;
-        Scanner s7=new Scanner(System.in);
-        System.out.println("Please enter the first number.");
-        Nm1=s7.nextInt();
-        System.out.println("Please enter the second number.");
-        Nm2=s7.nextInt();
-        System.out.println("Please enter the third number.");
-        Nm3=s7.nextInt();
-       if(Nm1>=Nm2&&Nm1>=Nm3)
-        {
-            System.out.println("The greatest: "+Nm1);
         }
-        else if(Nm2>=Nm1&&Nm2>=Nm3)
+        if (flag==true) {
+            System.out.println("the word is palindrome word");
+        } else
         {
-            System.out.println("The greatest: "+Nm2);
+            System.out.println("the word is not palindrome");
         }
-       else
-       {
-           System.out.println("The greatest: "+Nm3);
-       }
-        System.out.println("-----------------------------------------------");
-       /*8.Write a Java program that keeps a number from the user
-       and generates an integer between 1 and 7 and displays the name of the weekday.
-        */
-        Scanner s8=new Scanner(System.in);
-        System.out.println("Please enter the number of the day of the week that you want");
-        int num5=s8.nextInt();
-       switch(num5)
-       {
-           case 1:
-               System.out.println("Sunday");
-               break;
-           case 2 :
-               System.out.println("monday");
-               break;
-           case 3:
-               System.out.println("Tuesday");
-               break;
-           case 4:
-               System.out.println("Wednesday");
-               break;
-           case 5:
-               System.out.println("Thursday");
-               break;
-           case 6:
-               System.out.println("Friday");
-               break;
-           case 7:
-               System.out.println("Saturday");
-               break;
-           default:
-               System.out.println("please enter number from 1-7");
-               break;
-
-       }
     }
-}
+    }
+
+
