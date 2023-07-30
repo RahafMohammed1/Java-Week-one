@@ -95,7 +95,16 @@ public class Project1 {
         }
         return arr;
     }
-    public static String[][] Userchos(String[][] arr,int num) {
+    public static String[][]Userchos(String[][] arr)
+    {
+        Scanner s1 = new Scanner(System.in);
+        System.out.println("where would you like to play (1-9)");
+        int num = s1.nextInt();
+        if(Search(num)){
+            System.out.println("please choose another place");
+            Userchos(arr);
+        }
+        ucch.add(num);
         int i=0;
         int j=0;
         switch (num) {
@@ -162,6 +171,8 @@ public class Project1 {
                     arr[i][j] = "X";
                 }
                 break;
+            default: System.out.println("please choose number from 1-9");
+            Userchos(arr);
         }
         return arr;
     }
@@ -271,13 +282,9 @@ public class Project1 {
 
     public static void main(String[] args) {
         String[][] arr1 = {{" ", " | ", " ", " | ", " "}, {"-", "+", "-", "+", "-+-"}, {" ", " | ", " ", " | ", " "}, {"-", "+", "-", "+", "-+-"}, {" ", " | ", " ", " | ", " "}};
-        Scanner s1 = new Scanner(System.in);
         arrayprint(arr1);
         do {
-            System.out.println("where would you like to play (1-9)");
-            int num = s1.nextInt();
-            ucch.add(num);
-            arr1 = Userchos(arr1, num);
+            arr1 = Userchos(arr1);
             arrayprint(arr1);
             if (UserIs_win(arr1)) {
                 System.out.println("the user is win");
