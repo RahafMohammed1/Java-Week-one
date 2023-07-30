@@ -193,8 +193,8 @@ public class Project1 {
         else return false;
     }
     public static boolean check_rows(String arr[][],String x) {
-        int row=0;
             for (int i = 0; i < 5; i++) {
+                int row=0;
                 for(int j=0;j<5;j++) {
                     if (arr[i][j]==x)
                         row++;
@@ -259,6 +259,16 @@ public class Project1 {
         }
 
     }
+    public static boolean Searcharray(String[][] arr) {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (arr[i][j] == " ")
+                    return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         String[][] arr1 = {{" ", " | ", " ", " | ", " "}, {"-", "+", "-", "+", "-+-"}, {" ", " | ", " ", " | ", " "}, {"-", "+", "-", "+", "-+-"}, {" ", " | ", " ", " | ", " "}};
         Scanner s1 = new Scanner(System.in);
@@ -279,6 +289,9 @@ public class Project1 {
                 System.out.println("the Computer is win");
                 break;
             }
+            if(Searcharray(arr1)==false){
+                System.out.println("No one win");
+                break;}
         }while(ComputerIs_win(arr1)!=true&&UserIs_win(arr1)!=true);
     }
 
