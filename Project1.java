@@ -73,7 +73,7 @@ public class Project1 {
                 break;
             case 7:
                 i = 4;
-                j = 4;
+                j = 0;
                 if (Is_empty(i, j, arr)) {
                     arr[i][j] = "O";
                 }
@@ -87,7 +87,7 @@ public class Project1 {
                 break;
             case 9:
                 i = 4;
-                j = 0;
+                j = 4;
                 if (Is_empty(i, j, arr)) {
                     arr[i][j] = "O";
                 }
